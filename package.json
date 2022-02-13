@@ -1,0 +1,18 @@
+{
+  "name": "task2webassessment",
+  "version": "1.0.0",
+  "description": "Testing the way 2 automation user list",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test --headed",
+    "test:headless": "npx playwright test --project=chromium",
+    "test:firefox": "npx playwright test --project=firefox --headed",
+    "test:report": "npx playwright test && npx playwright show-report",
+    "report": "npx playwright show-report"
+  },
+  "author": "Nathan",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.18.1"
+  }
+}

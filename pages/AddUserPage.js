@@ -1,4 +1,4 @@
-
+const users = require('../db/models/users');
 class AddUserPage {
 
   /**

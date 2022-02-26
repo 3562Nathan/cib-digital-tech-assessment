@@ -9,6 +9,7 @@ class UserWebTablePage {
     this.page = page;
     // Locator used to select all table rows
     this.userListTableRows = page.locator('table[table-title="Smart Table example"] > tbody > tr');
+    this.firstTableRow = page.locator('table[table-title="Smart Table example"] > tbody > tr:first-child');
     this.addUserButton = page.locator('button[class="btn btn-link pull-right"]');
   }
 

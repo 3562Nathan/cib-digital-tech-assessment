@@ -18,7 +18,8 @@ const config = {
      * Maximum time expect() should wait for the condition to be met.
      * For example in `await expect(locator).toHaveText();`
      */
-    timeout: 10000
+    timeout: 10000,
+    toMatchSnapshot: { threshold: 0.2 }
   },
 
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -65,7 +66,7 @@ const config = {
   ],
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
-  // outputDir: 'test-results/',
+  outputDir: 'test-results/',
 
   /* Run your local dev server before starting the tests */
   // webServer: {

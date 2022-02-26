@@ -2,7 +2,7 @@
 const { test, expect } = require('@playwright/test');
 const { AddUserPage } = require('../pages/AddUserPage');
 const { UserWebTablePage } = require('../pages/UserWebTablePage');
-const { firstUser } = require('../data/userData');
+//const { firstUser } = require('../data/userData');
 const { expectedTableRowDataForSingleTest } = require('../data/tableRowData');
 const { roleListOptions, customers, webPageTitle, addUserModalHeaderText, partialPageUrl, tableRowIndex } = require('../data/constants');
 
@@ -24,23 +24,34 @@ test.describe('User List Tests', () => {
         await expect(strAddUserButton.trim()).toBe(addUserModalHeaderText); // trim any white space of string and validate
     });
 
-    test('Add users to User List Table', async ({ page }) => {
+    test.only('Add user to User List Table and validate', async ({ page }) => {
         /* Instantiate the page objects required for this test */
-        const addUserPage = new AddUserPage(page);
+        const users = require('../db/models/users');
         const userWebTablePage = new UserWebTablePage(page);
+        const addUserPage = new AddUserPage(page);
         await userWebTablePage.addUserButton.click();
         let modalHeaderText = await addUserPage.addUserModalHeader.textContent(); // store add user form header as text
         expect(modalHeaderText).toBe(addUserModalHeaderText);
-        await addUserPage.addUserDetails(firstUser); // uses the User object to complete form text details only
+        await addUserPage.addUserDetails(await users.init(0)); // uses the User object to complete form text details only
         await addUserPage.selectRole(roleListOptions.salesTeam); // rolelistoption taken from the role dropdown
         await addUserPage.customerSelection(customers.companyBbb); // custom selection taken from the company radio buttons
         await addUserPage.buttonSave.click();
 
-        /* Comparing the table row data
+
+        /* 
+            Comparing the table row data
             actualArrayComparisonOfFirstRowBoolean - table row 1
         */
         let actualArrayComparisonOfFirstRowBoolean = await userWebTablePage.tableRowValidation(tableRowIndex.firstTableRow, expectedTableRowDataForSingleTest);
         // Validating first table row data to be true according to the above comparison
+        await page.pause();
         await expect(actualArrayComparisonOfFirstRowBoolean).toBeTruthy();
+
+        /* 
+            Comparing the table row data using visual validation
+        */
+       
+        expect(await userWebTablePage.firstTableRow.screenshot()).toMatchSnapshot('firstRow.png');
+        console.log(await users.init(0));
     });
 });

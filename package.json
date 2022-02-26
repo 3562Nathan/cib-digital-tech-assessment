@@ -5,14 +5,17 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test --headed",
-    "test:headless": "npx playwright test --project=chromium",
+    "test:chrome": "npx playwright test --headed --project=chromium",
     "test:firefox": "npx playwright test --project=firefox --headed",
     "test:report": "npx playwright test && npx playwright show-report",
-    "report": "npx playwright show-report"
+    "report": "npx playwright show-report",
+    "update:snapshots": "npx playwright test --project=chromium --update-snapshots"
   },
   "author": "Nathan",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.18.1"
+    "@faker-js/faker": "^6.0.0-alpha.7",
+    "@playwright/test": "^1.19.1",
+    "mongodb": "^4.4.0"
   }
 }

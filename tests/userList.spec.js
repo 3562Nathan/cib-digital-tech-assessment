@@ -44,7 +44,6 @@ test.describe('User List Tests', () => {
         */
         let actualArrayComparisonOfFirstRowBoolean = await userWebTablePage.tableRowValidation(tableRowIndex.firstTableRow, expectedTableRowDataForSingleTest);
         // Validating first table row data to be true according to the above comparison
-        await page.pause();
         await expect(actualArrayComparisonOfFirstRowBoolean).toBeTruthy();
 
         /* 

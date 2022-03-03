@@ -1,4 +1,5 @@
 const users = require('../db/models/users');
+require('dotenv').config();
 class AddUserPage {
 
   /**

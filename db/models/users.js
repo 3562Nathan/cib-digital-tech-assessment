@@ -1,6 +1,5 @@
 const client = require('../dbConnection');
 //const { faker } = require('@faker-js/faker');
-
 module.exports.init = async (index) => {
     try {
       await client.connect();

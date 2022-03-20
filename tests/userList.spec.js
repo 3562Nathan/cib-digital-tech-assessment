@@ -24,7 +24,7 @@ test.describe('User List Tests', () => {
         await expect(strAddUserButton.trim()).toBe(addUserModalHeaderText); // trim any white space of string and validate
     });
 
-    test.only('Add user to User List Table and validate', async ({ page }) => {
+    test('Add user to User List Table and validate', async ({ page }) => {
         /* Instantiate the page objects required for this test */
         const users = require('../db/models/users');
         const userWebTablePage = new UserWebTablePage(page);

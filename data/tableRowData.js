@@ -16,11 +16,11 @@ module.exports = {
         '098635573'
     ],
     expectedTableRowDataForSingleTest: [ // Used for the single test
-        'Jerry',
-        'Jackson',
-        'JerryJackson',
+        'Tom',
+        'Jones',
+        'TomJones',
         'Sales Team',
-        'jerry.jackson@mail.com',
-        '098635573'
+        'tomjones@umail.co.uk',
+        '000000000'
     ]
 };

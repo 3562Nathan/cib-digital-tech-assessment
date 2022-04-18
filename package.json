@@ -14,9 +14,9 @@
   "author": "Nathan",
   "license": "ISC",
   "devDependencies": {
-    "@faker-js/faker": "^6.0.0-alpha.7",
-    "@playwright/test": "^1.19.1",
+    "@faker-js/faker": "^6.1.2",
+    "@playwright/test": "^1.21.0",
     "dotenv": "^16.0.0",
-    "mongodb": "^4.4.0"
+    "mongodb": "^4.5.0"
   }
 }

@@ -9,7 +9,7 @@ async function init() {
     
         const database = await client.db('client').collection('users');
         const result = await database.insertOne({
-            _id: 10,
+            _id: 11,
             txtFirstName: faker.name.firstName(),
             txtLastName: faker.name.lastName(),
             txtUserName: faker.name.firstName() + faker.name.lastName(),
